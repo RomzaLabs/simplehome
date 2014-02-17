@@ -6,6 +6,7 @@
         <serverdata>
           <mappings>
             <mapping deploy="/home/romri/webapps/simplehome" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/romri/webapps/media/simplehome" local="$PROJECT_DIR$/media/simplehome" web="/media/simplehome/" />
           </mappings>
         </serverdata>
       </paths>
