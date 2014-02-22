@@ -8,25 +8,6 @@
 	<link href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link href="http://rommelrico.com/media/simplehome/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="//rawgithub.com/christianv/jquery-lifestream/master/jquery.lifestream.min.js"></script>
-    <script>
-        $("#lifestream").lifestream({
-            list:[
-                {
-                    service: "github",
-                    user: "rommeltj"
-                },
-                {
-                    service: "stackoverflow",
-                    user: "605688"
-                },
-                {
-                    service: "reddit",
-                    user: "rommeltj"
-                }
-            ]
-        });
-    </script>
 	</head>
 <body>
 	<header>
@@ -62,13 +43,70 @@
             </ul>
 		</section>
         <section id="widgets">
-            <div style="width: 50%">
+            <!-- <div style="width: 50%; float: left;">
                 <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/Rommel_Rico" data-widget-id="437128585074065408">Tweets by @Rommel_Rico</a>
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             </div>
-            <div style="width: 50%">
-                <div id="lifestream">&nbsp;</div>
+            <div style="width: 50%; height: 250px; float: left;">
+            <h2 style="font-size: 18px">Activity feed</h2>
+            <div id="lifestream">&nbsp;</div>
+
+            <script>!window.jQuery && document.write('<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"><\/script>');</script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.1.0/jquery.timeago.min.js" type="text/javascript" charset="utf-8"></script>
+            <script>
+            (function(){
+                var count = 0,
+                        list = [
+                            {
+                                service: 'github',
+                                user: 'rommeltj'
+                            },
+                            {
+                                service: 'stackoverflow',
+                                user: '605688'
+                            }
+                        ];
+
+                Date.prototype.toISO8601 = function(date) {
+                    var pad = function (amount, width) {
+                        var padding = "";
+                        while (padding.length < width - 1 && amount < Math.pow(10, width - padding.length - 1))
+                            padding += "0";
+                        return padding + amount.toString();
+                    }
+                    date = date ? date : new Date();
+                    var offset = date.getTimezoneOffset();
+                    return pad(date.getFullYear(), 4)
+                            + "-" + pad(date.getMonth() + 1, 2)
+                            + "-" + pad(date.getDate(), 2)
+                            + "T" + pad(date.getHours(), 2)
+                            + ":" + pad(date.getMinutes(), 2)
+                            + ":" + pad(date.getUTCSeconds(), 2)
+                            + (offset > 0 ? "-" : "+")
+                            + pad(Math.floor(Math.abs(offset) / 60), 2)
+                            + ":" + pad(Math.abs(offset) % 60, 2);
+                };
+
+                $("#lifestream").lifestream({
+                    limit: 6,
+                    list: list,
+                    feedloaded: function(){
+                        count++;
+                        // Check if all the feeds have been loaded
+                        if( count === list.length + 1 ){
+                            $("#lifestream li").each(function(){
+                                var element = $(this),
+                                        date = new Date(element.data("time"));
+                                element.append(' <abbr class="timeago" title="' + date.toISO8601(date) + '">' + date + "</abbr>");
+                            })
+                            $("#lifestream .timeago").timeago();
+                        }
+                    }
+                });
+            })();
+            </script>
             </div>
+            <div class="clear" style="clear: both"></div> -->
         </section>
 	</article>
 </body>
