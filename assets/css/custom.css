@@ -1,5 +1,6 @@
 body {
     color: #57606f;
+    background-color: #f1f2f6;
 }
 
 h2 {
@@ -12,6 +13,14 @@ a {
 
 a:hover {
     color: #1e90ff !important;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.button {
+    border: solid 3px #ced6e0;
+    color: #2f3542 !important;
 }
 
 input[type="submit"]:hover,
@@ -39,8 +48,11 @@ input[type="button"].primary,
     color: #ffffff !important;
 }
 
+#main > section {
+    border-top: solid 2px #ced6e0;
+}
 #header {
-    background-color: black;
+    background-color: #2f3542;
     background-image: url("../../images/lake-tahoe-bg.jpg");
     background-repeat: no-repeat;
     background-size: auto;
@@ -65,7 +77,7 @@ input[type="button"].primary,
 .language-dot {
     height: 10px;
     width: 10px;
-    background-color: black;
+    background-color: #2f3542;
     border-radius: 50%;
     display: inline-block;
 }
