@@ -1,20 +1,20 @@
 # Simplehome
 
-Version: 0.1.0 - 3 Apr 2015
+Version: 1.0.0 - 18 Aug 2018
 
 ## Description
 
-A simple website featuring material design concepts for displaying my portfolio and contact information.  
+A simple website for displaying my portfolio and contact information.  
 
-### Documentation
-Branches:  
-master = Production branch  
-dev = Development branch  
+## Contributing
 
-## Contact
+If you wish to contribute to this repo, please read the [Contributing document](.github/CONTRIBUTING.md).
 
-<me@rommelrico.com>
+## Support
 
-## Notes
+If you need help with this project, please read the [Support document](.github/SUPPORT.md).
 
-If you want to contribute, email me at <me@rommelrico.com>.
+## License
+
+[MIT License](LICENSE.md)
+
