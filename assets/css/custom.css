@@ -10,15 +10,22 @@
 }
 
 .language-dot {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
     background-color: black;
     border-radius: 50%;
     display: inline-block;
 }
-.HTML { background-color: #70a1ff; }
-.Java { background-color: #1e90ff; }
-.Swift { background-color: #ff6348; }
-.CSS { background-color: #5352ed; }
-.Python { background-color: #2ed573; }
-.Objective-C { background-color: #747d8c }
+.html-dot { background-color: #7bed9f; }
+.java-dot { background-color: #1e90ff; }
+.swift-dot { background-color: #ff6348; }
+.css-dot { background-color: #5352ed; }
+.python-dot { background-color: #2ed573; }
+.objective-c-dot { background-color: #747d8c; }
+
+.html-label { color: #7bed9f; font-weight: bold; }
+.java-label { color: #1e90ff; font-weight: bold; }
+.swift-label { color: #ff6348; font-weight: bold; }
+.css-label { color: #5352ed; font-weight: bold; }
+.python-label { color: #2ed573; font-weight: bold; }
+.objective-c-label { color: #747d8c; font-weight: bold; }
