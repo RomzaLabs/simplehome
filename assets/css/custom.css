@@ -8,3 +8,17 @@
 #header .image.avatar {
     width: 10em;
 }
+
+.language-dot {
+    height: 12px;
+    width: 12px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+}
+.HTML { background-color: #70a1ff; }
+.Java { background-color: #1e90ff; }
+.Swift { background-color: #ff6348; }
+.CSS { background-color: #5352ed; }
+.Python { background-color: #2ed573; }
+.Objective-C { background-color: #747d8c }

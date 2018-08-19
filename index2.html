@@ -11,6 +11,21 @@
 
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom.css" />
+
+        <!--Github Feed stuff-->
+        <script src="assets/js/githubFeed.js"></script>
+        <script>
+            GithubFeed.init({
+                username: 'rommeltj',               // GitHub username
+                container: '#rommel-github-feed',   // DOM element to bind
+                count: 10, 				            // Number of repositories you'll want to show
+                order: 'desc', 			            // Order to show
+                onComplete: function() {
+                    // Callback to execute after function init
+                }
+            });
+        </script>
+
 	</head>
 	<body class="is-preload">
 
@@ -34,9 +49,21 @@
 				<header class="major">
 					<h2>About Me</h2>
 				</header>
-				<p>My name is Rommel Rico and I am a Software Engineer currently working for the University of San Diego. In my current role, I work with the MySanDiego Portal and Mobile Teams to develop solutions that impact the experience of students, staff, faculty, alumni, and others within the USD community.</p>
-                <p>I also have a small indie site called <a href="https://romzalabs.com/">Romza</a> where me and my partner Liza Joung develop small iOS apps for the Apple App Store. When I'm bored, I like to go on long-distance bike rides and play Star Citizen with my buddies over at <a href="https://purnkleen.com">Pur'N'Kleen</a>.</p>
-                <p>Find a showcase of my favorite projects below or head to LinkedIn for a more detailed overview of my professional experience.</p>
+				<p>
+                    My name is Rommel Rico and I am a Software Engineer currently working for the University of San
+                    Diego. In my current role, I work with the MySanDiego Portal and Mobile Teams to develop solutions
+                    that impact the experience of students, staff, faculty, alumni, and others within the USD community.
+                </p>
+                <p>
+                    I also have a small indie site called <a href="https://romzalabs.com/">Romza</a> where me and my
+                    partner Liza Joung develop small iOS apps for the Apple App Store. When I'm bored, I like to go on
+                    long-distance bike rides and play Star Citizen with my buddies over at
+                    <a href="https://purnkleen.com">Pur'N'Kleen</a>.
+                </p>
+                <p>
+                    Find a showcase of my favorite projects below or head to LinkedIn for a more detailed overview of
+                    my professional experience.
+                </p>
 				<ul class="actions">
 					<li><a href="https://www.linkedin.com/in/rommel-rico-29661363/" class="button small icon fa-linkedin">More on LinkedIn</a></li>
 				</ul>
@@ -44,42 +71,8 @@
 
 			<!-- Two -->
 			<section id="two">
-				<h2>Recent Work</h2>
-				<div class="row">
-					<article class="col-6 col-12-xsmall work-item">
-						<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
-						<h3>Magna sed consequat tempus</h3>
-						<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-					</article>
-					<article class="col-6 col-12-xsmall work-item">
-						<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
-						<h3>Ultricies lacinia interdum</h3>
-						<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-					</article>
-					<article class="col-6 col-12-xsmall work-item">
-						<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
-						<h3>Tortor metus commodo</h3>
-						<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-					</article>
-					<article class="col-6 col-12-xsmall work-item">
-						<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-						<h3>Quam neque phasellus</h3>
-						<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-					</article>
-					<article class="col-6 col-12-xsmall work-item">
-						<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-						<h3>Nunc enim commodo aliquet</h3>
-						<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-					</article>
-					<article class="col-6 col-12-xsmall work-item">
-						<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-						<h3>Risus ornare lacinia</h3>
-						<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-					</article>
-				</div>
-				<ul class="actions">
-					<li><a href="#" class="button">Full Portfolio</a></li>
-				</ul>
+				<h2>Recent GitHub Activity</h2>
+				<div id="rommel-github-feed" class="row"></div>
 			</section>
 
 			<!-- Three -->
