@@ -1,3 +1,44 @@
+body {
+    color: #57606f;
+}
+
+h2 {
+    color: #2f3542;
+}
+
+a {
+    color: #1e90ff;
+}
+
+a:hover {
+    color: #1e90ff !important;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:hover {
+    border-color: #1e90ff;
+    color: #1e90ff !important;
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active,
+.button:active {
+    border-color: #1e90ff;
+    color: #1e90ff !important;
+}
+
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
+.button.primary {
+    background-color: #1e90ff;
+    border-color: #1e90ff;
+    color: #ffffff !important;
+}
+
 #header {
     background-color: black;
     background-image: url("../../images/lake-tahoe-bg.jpg");
@@ -5,8 +46,20 @@
     background-size: auto;
 }
 
+#header h1 {
+    color: #a4b0be;
+}
+
 #header .image.avatar {
     width: 10em;
+}
+
+#footer .copyright {
+    color: #a4b0be;
+}
+
+#footer .icons a {
+    color: #a4b0be;
 }
 
 .language-dot {
@@ -16,6 +69,7 @@
     border-radius: 50%;
     display: inline-block;
 }
+
 .html-dot { background-color: #7bed9f; }
 .java-dot { background-color: #1e90ff; }
 .swift-dot { background-color: #ff6348; }
