@@ -88,6 +88,7 @@ input[type="button"].primary,
 .css-dot { background-color: #5352ed; }
 .python-dot { background-color: #2ed573; }
 .objective-c-dot { background-color: #747d8c; }
+.kotlin-dot { background-color: #ffa502; }
 
 .html-label { color: #7bed9f; font-weight: bold; }
 .java-label { color: #1e90ff; font-weight: bold; }
@@ -95,3 +96,4 @@ input[type="button"].primary,
 .css-label { color: #5352ed; font-weight: bold; }
 .python-label { color: #2ed573; font-weight: bold; }
 .objective-c-label { color: #747d8c; font-weight: bold; }
+.kotlin-label { background-color: #ffa502; }
