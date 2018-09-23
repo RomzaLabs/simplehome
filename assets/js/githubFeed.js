@@ -29,18 +29,24 @@ var GithubFeed = {
 
     bindTemplate: function(name, description, url, language, updated_at) {
         var container = '';
-        var lcLanguage = language.toLowerCase();
+        var lcLanguage = '';
+        if (language !== null && language !== '') {
+            lcLanguage = language.toLowerCase();
+        }
         var date = new Date(updated_at);
         var options = { month: 'long', day: 'numeric', year: 'numeric' };
         var formattedDate = date.toLocaleDateString("en-US", options);
 
-
         container += "<article class='col-6 col-12-xsmall work-item'>";
         container += "<h3><a href='" + url + "'>" + name + "</a></h3>";
         container += "<p>" + description + "</p>";
-        container += "<p><span class='" + lcLanguage +"-dot language-dot'></span> "
-            + "<span class='" + lcLanguage + "-label'>" + language + "</span> "
-            + "| Last Updated: " + formattedDate +" </p>";
+        if (lcLanguage !== '') {
+            container += "<p><span class='" + lcLanguage +"-dot language-dot'></span> "
+                + "<span class='" + lcLanguage + "-label'>" + language + "</span> "
+                + "| Last Updated: " + formattedDate +" </p>";
+        } else {
+            container += "<p>Last Updated: " + formattedDate +" </p>";
+        }
         container += "</article>";
 
         return container;
