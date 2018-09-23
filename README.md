@@ -1,6 +1,6 @@
 # Simplehome
 
-Version: 2.0.0 - 19 Aug 2018
+Version: 2.0.1 - 23 Sep 2018
 
 ## Description
 
@@ -16,5 +16,5 @@ If you need help with this project, please read the [Support document](.github/S
 
 ## License
 
-[MIT License](LICENSE.md)
+[MIT License](LICENSE)
 
