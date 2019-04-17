@@ -1,6 +1,6 @@
 # Simplehome
 
-Version: 2.2.0 - 16 Apr 2019
+Version: 2.3.0 - 16 Apr 2019
 
 ## Description
 
