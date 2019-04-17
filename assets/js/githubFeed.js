@@ -2,7 +2,18 @@ var GithubFeed = {
     init: function(config) {
         this.count = config.count || 0;
         this.order = config.order || 'desc';
-        this.url = 'https://api.github.com/users/'+config.username +'/repos?per_page='+ this.count +'&sort=updated&direction='+ this.order;
+        this.user_url = 'https://api.github.com/users/'
+            + config.username
+            + '/repos?per_page='
+            + this.count
+            + '&sort=pushed&direction='
+            + this.order;
+        this.org_url = 'https://api.github.com/orgs/'
+            + config.orgname
+            + '/repos?per_page='
+            + this.count
+            + '&sort=pushed&direction='
+            + this.order;
         this.container = config.container;
         this.onComplete = config.onComplete || function () {};
         this.fetch();
@@ -27,7 +38,7 @@ var GithubFeed = {
         };
     },
 
-    bindTemplate: function(name, description, url, language, updated_at) {
+    bindTemplate: function(name, description, svn_url, language, updated_at) {
         var container = '';
         var lcLanguage = '';
         if (language !== null && language !== '') {
@@ -38,7 +49,7 @@ var GithubFeed = {
         var formattedDate = date.toLocaleDateString("en-US", options);
 
         container += "<article class='col-6 col-12-xsmall work-item'>";
-        container += "<h3><a href='" + url + "'>" + name + "</a></h3>";
+        container += "<h3><a href='" + svn_url + "'>" + name + "</a></h3>";
         container += "<p>" + description + "</p>";
         if (lcLanguage !== '') {
             container += "<p><span class='" + lcLanguage +"-dot language-dot'></span> "
@@ -55,27 +66,34 @@ var GithubFeed = {
     fetch: function() {
         var self = this;
 
-        self.objJSON({url: self.url}, function(response) {
-            var repos     = JSON.parse(response),
-                reposList = document.querySelector(self.container),
-                content = '',
-                i;
+        self.objJSON({url: self.user_url}, function(user_response) {
+            var user_repos = JSON.parse(user_response);
+            var reposList = document.querySelector(self.container);
 
-            for(i = 0; i < repos.length; i++) {
-                content += self.bindTemplate(
-                    repos[i].name,
-                    repos[i].description,
-                    repos[i].svn_url,
-                    repos[i].language,
-                    repos[i].updated_at
-                );
-            }
+            self.objJSON({url: self.org_url}, function(org_response) {
+                var org_repos = JSON.parse(org_response);
+                var content = '';
+                var i;
 
-            // content += '</ul>';
+                var combined_repos = user_repos.concat(org_repos);
+                var sorted_repos = combined_repos.sort(function(a, b) {
+                    return new Date(b.updated_at) - new Date(a.updated_at);
+                });
+                var small_repos = sorted_repos.slice(0, self.count);
 
-            reposList.innerHTML = content;
+                for(i = 0; i < small_repos.length; i++) {
+                    content += self.bindTemplate(
+                        small_repos[i].name,
+                        small_repos[i].description,
+                        small_repos[i].svn_url,
+                        small_repos[i].language,
+                        small_repos[i].updated_at
+                    );
+                }
 
-            self.onComplete();
+                reposList.innerHTML = content;
+                self.onComplete();
+            });
         });
     }
 };
