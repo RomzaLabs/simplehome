@@ -59,22 +59,29 @@ var LetterboxdFeed = {
 
         if (film.poster) {
             container += "<a href='" + film.link + "' class='image fit thumb'>";
-            container += "<img src='" + film.poster + "' alt='" + film.title + "' />";
+            container += "<img src='" + film.poster + "' alt='" + film.title + "' style='max-height: 150px; object-fit: cover;' />";
             container += "</a>";
         }
 
         container += "<h3><a href='" + film.link + "'>" + film.title;
         if (film.year) {
-            container += ", " + film.year;
+            container += " (" + film.year + ")";
         }
         container += "</a></h3>";
 
+        // Combine rating and watched date on the same line
+        var metadata = '';
         if (film.rating) {
-            container += "<p>" + film.rating + "</p>";
+            metadata += film.rating;
         }
-
         if (film.watchedDate) {
-            container += "<p>Watched: " + film.watchedDate + "</p>";
+            if (metadata) {
+                metadata += " | ";
+            }
+            metadata += "Watched: " + film.watchedDate;
+        }
+        if (metadata) {
+            container += "<p>" + metadata + "</p>";
         }
 
         container += "</article>";
