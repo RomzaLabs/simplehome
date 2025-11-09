@@ -115,12 +115,18 @@ var LetterboxdFeed = {
                     year: filmYear ? filmYear.textContent : '',
                     rating: memberRating ? self.parseRating(memberRating.textContent) : '',
                     watchedDate: watchedDate ? self.parseDate(watchedDate.textContent) : '',
+                    watchedDateRaw: watchedDate ? watchedDate.textContent : '',
                     poster: description ? self.extractImageFromDescription(description.textContent) : '',
                     link: link ? link.textContent : ''
                 };
 
                 films.push(film);
             }
+
+            // Sort by watched date in descending order (most recent first)
+            films.sort(function(a, b) {
+                return new Date(b.watchedDateRaw) - new Date(a.watchedDateRaw);
+            });
 
             // Generate HTML content
             for (var j = 0; j < films.length; j++) {
