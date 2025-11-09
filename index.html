@@ -38,6 +38,19 @@
             });
         </script>
 
+        <!--Letterboxd Feed stuff-->
+        <script src="assets/js/letterboxdFeed.js"></script>
+        <script>
+            LetterboxdFeed.init({
+                username: 'RommelTJ',                   // Letterboxd Username
+                container: '#rommel-letterboxd-feed',   // DOM element to bind
+                count: 10,                              // Number of films to show
+                onComplete: function() {
+                    // Callback to execute after function init
+                }
+            });
+        </script>
+
 	</head>
 	<body class="is-preload">
 
@@ -88,6 +101,12 @@
 				<h2>Recent GitHub Activity</h2>
 				<div id="rommel-github-feed" class="row"></div>
 			</section>
+
+		<!-- Letterboxd -->
+		<section id="letterboxd">
+			<h2>Recently Watched Films</h2>
+			<div id="rommel-letterboxd-feed" class="row"></div>
+		</section>
 
 			<!-- Three -->
 			<section id="three">
