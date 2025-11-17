@@ -1,56 +1,28 @@
 var LetterboxdFeed = {
     init: function(config) {
-        this.username = config.username;
+        this.dataUrl = config.dataUrl || 'assets/data/letterboxd.json';
         this.count = config.count || 10;
-        this.corsProxy = config.corsProxy || 'https://api.allorigins.win/raw?url=';
-        this.feedUrl = this.corsProxy + encodeURIComponent('https://letterboxd.com/' + this.username + '/rss/');
         this.container = config.container;
         this.onComplete = config.onComplete || function () {};
         this.fetch();
     },
 
-    xmlHttp: function(){
-        return new XMLHttpRequest();
-    },
-
-    fetchFeed: function(options, callback) {
-        var self = this;
-        var xhttp = self.xmlHttp();
-        options.url = options.url || location.href;
-        xhttp.open("GET", options.url, true);
-        xhttp.send(null);
-
+    fetchJSON: function(url, callback) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, true);
         xhttp.onreadystatechange = function () {
             if (xhttp.status === 200 && xhttp.readyState === 4) {
-                callback(xhttp.responseText);
+                try {
+                    var data = JSON.parse(xhttp.responseText);
+                    callback(data);
+                } catch (e) {
+                    console.error('Failed to parse JSON:', e);
+                }
+            } else if (xhttp.readyState === 4) {
+                console.error('Failed to fetch Letterboxd data:', xhttp.status);
             }
         };
-    },
-
-    parseRating: function(rating) {
-        if (!rating || rating === '') {
-            return '';
-        }
-        var numRating = parseFloat(rating);
-        var ratingText = numRating.toString();
-        if (numRating === 1) {
-            return ratingText + ' Star';
-        } else {
-            return ratingText + ' Stars';
-        }
-    },
-
-    parseDate: function(dateString) {
-        var date = new Date(dateString);
-        var options = { month: 'long', day: 'numeric', year: 'numeric' };
-        return date.toLocaleDateString("en-US", options);
-    },
-
-    extractImageFromDescription: function(description) {
-        var tempDiv = document.createElement('div');
-        tempDiv.innerHTML = description;
-        var img = tempDiv.querySelector('img');
-        return img ? img.src : '';
+        xhttp.send(null);
     },
 
     bindTemplate: function(film) {
@@ -91,46 +63,15 @@ var LetterboxdFeed = {
     fetch: function() {
         var self = this;
 
-        self.fetchFeed({url: self.feedUrl}, function(response) {
-            var parser = new DOMParser();
-            var xmlDoc = parser.parseFromString(response, "text/xml");
-
-            var items = xmlDoc.querySelectorAll('item');
-            var films = [];
+        self.fetchJSON(self.dataUrl, function(films) {
             var content = '';
 
-            for (var i = 0; i < Math.min(items.length, self.count); i++) {
-                var item = items[i];
-
-                // Extract film data from custom letterboxd namespace and standard RSS elements
-                var filmTitle = item.getElementsByTagNameNS('*', 'filmTitle')[0];
-                var filmYear = item.getElementsByTagNameNS('*', 'filmYear')[0];
-                var memberRating = item.getElementsByTagNameNS('*', 'memberRating')[0];
-                var watchedDate = item.getElementsByTagNameNS('*', 'watchedDate')[0];
-                var description = item.querySelector('description');
-                var link = item.querySelector('link');
-
-                var film = {
-                    title: filmTitle ? filmTitle.textContent : '',
-                    year: filmYear ? filmYear.textContent : '',
-                    rating: memberRating ? self.parseRating(memberRating.textContent) : '',
-                    watchedDate: watchedDate ? self.parseDate(watchedDate.textContent) : '',
-                    watchedDateRaw: watchedDate ? watchedDate.textContent : '',
-                    poster: description ? self.extractImageFromDescription(description.textContent) : '',
-                    link: link ? link.textContent : ''
-                };
-
-                films.push(film);
-            }
-
-            // Sort by watched date in descending order (most recent first)
-            films.sort(function(a, b) {
-                return new Date(b.watchedDateRaw) - new Date(a.watchedDateRaw);
-            });
+            // Take only the specified count of films (already sorted by date)
+            var displayFilms = films.slice(0, self.count);
 
             // Generate HTML content
-            for (var j = 0; j < films.length; j++) {
-                content += self.bindTemplate(films[j]);
+            for (var i = 0; i < displayFilms.length; i++) {
+                content += self.bindTemplate(displayFilms[i]);
             }
 
             var filmsList = document.querySelector(self.container);
