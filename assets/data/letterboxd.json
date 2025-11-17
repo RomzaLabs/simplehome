@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Sample Film",
+    "year": "2024",
+    "rating": "4 Stars",
+    "watchedDate": "November 17, 2025",
+    "watchedDateRaw": "2025-11-17",
+    "poster": "https://example.com/poster.jpg",
+    "link": "https://letterboxd.com/RommelTJ/film/sample-film/"
+  }
+]
