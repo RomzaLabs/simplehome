@@ -1,0 +1,9 @@
+{
+  "name": "simplehome-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dependencies for GitHub Actions automation scripts only. The website itself has no dependencies.",
+  "dependencies": {
+    "@xmldom/xmldom": "^0.8.11"
+  }
+}
