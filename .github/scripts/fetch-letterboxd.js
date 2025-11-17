@@ -59,7 +59,14 @@ function extractImageFromDescription(description) {
 function getElementText(element, tagName, namespace = '*') {
     if (!element) return '';
 
-    const elements = element.getElementsByTagNameNS(namespace, tagName);
+    let elements;
+    if (namespace === null) {
+        // For standard RSS elements, use getElementsByTagName
+        elements = element.getElementsByTagName(tagName);
+    } else {
+        // For namespaced elements (like letterboxd:filmTitle), use getElementsByTagNameNS
+        elements = element.getElementsByTagNameNS(namespace, tagName);
+    }
     return elements && elements.length > 0 ? elements[0].textContent : '';
 }
 
