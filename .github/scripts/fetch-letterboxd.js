@@ -80,13 +80,18 @@ function parseXMLFeed(xmlString) {
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
 
-        // Extract film data from custom letterboxd namespace and standard RSS elements
+        // Extract film data from custom letterboxd namespace
         const filmTitle = getElementText(item, 'filmTitle');
         const filmYear = getElementText(item, 'filmYear');
         const memberRating = getElementText(item, 'memberRating');
         const watchedDate = getElementText(item, 'watchedDate');
-        const description = getElementText(item, 'description', null);
-        const link = getElementText(item, 'link', null);
+
+        // Extract standard RSS elements (no namespace)
+        const linkElements = item.getElementsByTagName('link');
+        const descElements = item.getElementsByTagName('description');
+
+        const link = linkElements && linkElements.length > 0 ? linkElements[0].textContent.trim() : '';
+        const description = descElements && descElements.length > 0 ? descElements[0].textContent : '';
 
         const film = {
             title: filmTitle,
