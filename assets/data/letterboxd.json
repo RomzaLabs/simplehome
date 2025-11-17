@@ -1,11 +1,146 @@
 [
   {
-    "title": "Sample Film",
+    "title": "Oddity",
     "year": "2024",
+    "rating": "3 Stars",
+    "watchedDate": "October 31, 2025",
+    "watchedDateRaw": "2025-11-01",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Companion",
+    "year": "2025",
+    "rating": "3.5 Stars",
+    "watchedDate": "January 31, 2025",
+    "watchedDateRaw": "2025-02-01",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Megalopolis",
+    "year": "2024",
+    "rating": "0.5 Stars",
+    "watchedDate": "January 31, 2025",
+    "watchedDateRaw": "2025-02-01",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Nosferatu",
+    "year": "2024",
+    "rating": "4.5 Stars",
+    "watchedDate": "January 10, 2025",
+    "watchedDateRaw": "2025-01-11",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Alien: Romulus",
+    "year": "2024",
+    "rating": "4.5 Stars",
+    "watchedDate": "August 15, 2024",
+    "watchedDateRaw": "2024-08-16",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Madame Web",
+    "year": "2024",
+    "rating": "0.5 Stars",
+    "watchedDate": "June 30, 2024",
+    "watchedDateRaw": "2024-07-01",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Godzilla Minus One",
+    "year": "2023",
+    "rating": "4.5 Stars",
+    "watchedDate": "June 5, 2024",
+    "watchedDateRaw": "2024-06-06",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "The Coffee Table",
+    "year": "2022",
+    "rating": "5 Stars",
+    "watchedDate": "June 2, 2024",
+    "watchedDateRaw": "2024-06-03",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Dune: Part Two",
+    "year": "2024",
+    "rating": "2.5 Stars",
+    "watchedDate": "May 24, 2024",
+    "watchedDateRaw": "2024-05-25",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Zardoz",
+    "year": "1974",
+    "rating": "3 Stars",
+    "watchedDate": "April 20, 2024",
+    "watchedDateRaw": "2024-04-21",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "WarGames",
+    "year": "1983",
+    "rating": "3.5 Stars",
+    "watchedDate": "February 25, 2024",
+    "watchedDateRaw": "2024-02-26",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "You're Next",
+    "year": "2011",
+    "rating": "3.5 Stars",
+    "watchedDate": "February 24, 2024",
+    "watchedDateRaw": "2024-02-25",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "year": "2005",
     "rating": "4 Stars",
-    "watchedDate": "November 17, 2025",
-    "watchedDateRaw": "2025-11-17",
-    "poster": "https://example.com/poster.jpg",
-    "link": "https://letterboxd.com/RommelTJ/film/sample-film/"
+    "watchedDate": "April 14, 2020",
+    "watchedDateRaw": "2020-04-15",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "Good Time",
+    "year": "2017",
+    "rating": "4 Stars",
+    "watchedDate": "December 28, 2019",
+    "watchedDateRaw": "2019-12-29",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "The Farewell",
+    "year": "2019",
+    "rating": "5 Stars",
+    "watchedDate": "December 27, 2019",
+    "watchedDateRaw": "2019-12-28",
+    "poster": "",
+    "link": ""
+  },
+  {
+    "title": "It Follows",
+    "year": "2014",
+    "rating": "5 Stars",
+    "watchedDate": "December 27, 2019",
+    "watchedDateRaw": "2019-12-28",
+    "poster": "",
+    "link": ""
   }
 ]
