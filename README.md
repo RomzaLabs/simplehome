@@ -1,6 +1,6 @@
 # Simplehome
 
-Version: 2.7.0 - 17 Nov 2025
+Version: 2.8.0 - 18 Nov 2025
 
 ## Description
 

@@ -41,3 +41,20 @@ jobs:
             git commit -m "chore: Update Letterboxd feed data"
             git push
           fi
+
+      - name: Deploy to Opalstack
+        if: success()
+        run: |
+          # Setup SSH key
+          mkdir -p ~/.ssh
+          echo "${{ secrets.OPALSTACK_SSH_KEY }}" > ~/.ssh/opalstack_deploy
+          chmod 600 ~/.ssh/opalstack_deploy
+
+          # Add server to known_hosts to prevent interactive prompt
+          ssh-keyscan -H ${{ secrets.OPALSTACK_HOST }} >> ~/.ssh/known_hosts
+
+          # Deploy via SSH
+          ssh -i ~/.ssh/opalstack_deploy ${{ secrets.OPALSTACK_USER }}@${{ secrets.OPALSTACK_HOST }} \
+            "cd ${{ secrets.OPALSTACK_PATH }} && git pull origin master"
+
+          echo "✓ Deployment to Opalstack completed successfully"
