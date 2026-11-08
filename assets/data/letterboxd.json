@@ -1,5 +1,14 @@
 [
   {
+    "title": "Godzilla Minus Zero",
+    "year": "2026",
+    "rating": "4 Stars",
+    "watchedDate": "November 7, 2026",
+    "watchedDateRaw": "2026-11-07",
+    "poster": "https://a.ltrbxd.com/resized/film-poster/1/2/6/6/6/8/4/1266684-godzilla-minus-zero-0-600-0-900-crop.jpg?v=38989be61d",
+    "link": "https://letterboxd.com/rommeltj/film/godzilla-minus-zero/"
+  },
+  {
     "title": "28 Years Later: The Bone Temple",
     "year": "2026",
     "rating": "5 Stars",
@@ -439,14 +448,5 @@
     "watchedDateRaw": "2019-12-28",
     "poster": "https://a.ltrbxd.com/resized/film-poster/4/9/3/6/9/7/493697-the-farewell-0-600-0-900-crop.jpg?v=115ef58791",
     "link": "https://letterboxd.com/rommeltj/film/the-farewell-2019/"
-  },
-  {
-    "title": "It Follows",
-    "year": "2014",
-    "rating": "5 Stars",
-    "watchedDate": "December 28, 2019",
-    "watchedDateRaw": "2019-12-28",
-    "poster": "https://a.ltrbxd.com/resized/sm/upload/zr/lv/9v/wy/4MrwJZr0R9LbyOgZqwLNmtzzxbu-0-600-0-900-crop.jpg?v=0f234ef9c3",
-    "link": "https://letterboxd.com/rommeltj/film/it-follows/"
   }
 ]
